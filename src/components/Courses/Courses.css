@@ -8,3 +8,6 @@
     color: rgb(226, 221, 221);
     background-color: #2F80ED;
 }
+.order-list {
+    list-style: number;
+}
