@@ -2,6 +2,10 @@ import { FaBookOpen, FaDollarSign } from 'react-icons/fa';
 import { useState } from 'react';
 import './Courses.css'
 import { useEffect } from 'react';
+import Swal from 'sweetalert2';
+
+
+
 const Courses = () => {
     const [coursesInfo, setCoursesinfo] = useState([]);
     const [allCourse, setAllcourses] = useState([]);
@@ -20,14 +24,21 @@ const Courses = () => {
         let totalCredit = courses.credit;
         let totalPrice = courses.course_price;
         if (courseSingleName) {
-            return alert('name already added')
+            return Swal.fire({
+                icon: 'error',
+                text: 'You already added this course!'
+              })
         }
         else {
             allCourse.forEach(course => {
                 totalCredit = totalCredit + course.credit;
             })
             if (totalCredit > 20) {
-                return alert('tk ses')
+                return Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Your remaining money is out of your budget'
+                  })
             }
             else {
                 const remainig = 20 - totalCredit;
@@ -97,5 +108,7 @@ const Courses = () => {
         </div>
     );
 };
+
+
 
 export default Courses;
