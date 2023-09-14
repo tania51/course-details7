@@ -1,0 +1,10 @@
+.card-btn {
+    border-radius: 8px;
+    border: 1px solid #2F80ED;
+    background-color: #2F80ED;
+    color: #fff;
+}
+.card-btn:hover {
+    color: rgb(226, 221, 221);
+    background-color: #2F80ED;
+}
