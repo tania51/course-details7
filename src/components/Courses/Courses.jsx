@@ -27,7 +27,7 @@ const Courses = () => {
             return Swal.fire({
                 icon: 'error',
                 text: 'You already added this course!'
-              })
+            })
         }
         else {
             allCourse.forEach(course => {
@@ -37,16 +37,23 @@ const Courses = () => {
                 return Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Your remaining money is out of your budget'
-                  })
+                    text: 'Your total credit was 20 and this is out of your budget now so you can not purchase another course'
+                })
             }
             else {
-                const remainig = 20 - totalCredit;
+                const remaining = 20 - totalCredit;
+                if (remaining < 0) {
+                    return Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Your remaining money is 0 and you can not add another course'
+                    })
+                }
                 allCourse.forEach(coursePrice => {
                     totalPrice = totalPrice + coursePrice.course_price;
                 })
                 console.log(totalPrice);
-                setRemaining(remainig);
+                setRemaining(remaining);
                 setCredit(totalCredit);
                 setTotalPrice(totalPrice);
                 setAllcourses([...allCourse, courses])
