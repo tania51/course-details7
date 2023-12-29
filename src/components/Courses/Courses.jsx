@@ -64,7 +64,7 @@ const Courses = () => {
 
     }
     return (
-        <div className='lg:flex gap-4 px-4'>
+        <div className='lg:flex gap-4 px-4 pb-14'>
             {/* card area */}
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-3/4'>
                 {
